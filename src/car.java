@@ -1,22 +1,16 @@
-public class car {
-    public class car implements Comparable<SortCars> {
-    
-    private int year;            // årstal for begivenheden
-    private String description;  // kort tekst om begivenheden
+
+public class car implements Comparable<car> {
+
+    private String numberPlate;  // kort tekst om begivenheden
 
     // 1. Constructor – bruges til at oprette en ny historisk begivenhed
-    public HistoricalEvent(int year, String description) {
-        this.year = year;
-        this.description = description;
+    public car ( String numberPlate) {
+        this.numberPlate= numberPlate;
     }
 
     // 2. Getters (kun til at læse værdier)
-    public int getYear() {
-        return year;
-    }
-
-    public String getDescription() {
-        return description;
+    public String getnumberPlate() {
+        return numberPlate;
     }
 
     // 3. compareTo-metoden
@@ -24,9 +18,9 @@ public class car {
     // klasse sammenlignes med hinanden. Collections.sort() bruger compareTo().
     // Vi vælger her at sammenligne på årstallet.
     @Override
-    public int compareTo(HistoricalEvent o) {
+    public int compareTo(car o) {
         // Stigende sortering (ældste først)
-        return Integer.compare(this.year, o.year);
+        return this.numberPlate.compareTo(o.numberPlate);
 
         // Hvis du vil have det i faldende rækkefølge (nyeste først):
         // return Integer.compare(o.year, this.year);
@@ -37,7 +31,7 @@ public class car {
     // Her definerer vi selv hvordan objektet vises.
     @Override
     public String toString() {
-        return year + ": " + description;
+        return numberPlate + ": ";
     }
-    
+
 }
